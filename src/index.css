@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --font-family-display: 'Barlow Condensed', sans-serif;
+  --font-family-sans: 'Space Grotesk', sans-serif;
+}
+
+/* ─── Design tokens ─────────────────────────────────── */
+:root {
+  --bg:           #08080A;
+  --bg-card:      #111117;
+  --bg-card-hover:#16161E;
+  --border:       #1E1E28;
+  --text:         #FAFAFA;
+  --text-muted:   #6B7280;
+  --blue:         #1E44FF;
+  --blue-hover:   #1838E0;
+  --blue-dim:     rgba(30, 68, 255, 0.12);
+  --blue-glow:    rgba(30, 68, 255, 0.3);
+  --red:          #F03520;
+  --red-dim:      rgba(240, 53, 32, 0.12);
+  --red-glow:     rgba(240, 53, 32, 0.25);
+  --radius:       14px;
+  --radius-sm:    8px;
+}
+
+/* ─── Global resets ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-family-sans);
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ─── Bokeh ambient background ──────────────────────── */
+.bokeh-ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bokeh-ambient span {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.bokeh-b1 {
+  width: 340px; height: 340px;
+  top: 2%; left: -5%;
+  background: rgba(30, 68, 255, 0.09);
+  filter: blur(70px);
+  animation: b-drift1 22s ease-in-out infinite alternate;
+}
+.bokeh-b2 {
+  width: 220px; height: 220px;
+  top: 65%; right: 2%;
+  background: rgba(240, 53, 32, 0.07);
+  filter: blur(55px);
+  animation: b-drift2 28s ease-in-out infinite alternate;
+}
+.bokeh-b3 {
+  width: 500px; height: 500px;
+  top: 35%; left: 55%;
+  background: rgba(30, 68, 255, 0.05);
+  filter: blur(90px);
+  animation: b-drift3 34s ease-in-out infinite alternate;
+}
+.bokeh-b4 {
+  width: 200px; height: 200px;
+  top: 15%; right: 12%;
+  background: rgba(240, 53, 32, 0.06);
+  filter: blur(50px);
+  animation: b-drift1 26s ease-in-out infinite alternate-reverse;
+}
+.bokeh-b5 {
+  width: 280px; height: 280px;
+  bottom: 8%; left: 25%;
+  background: rgba(30, 68, 255, 0.07);
+  filter: blur(65px);
+  animation: b-drift2 30s ease-in-out infinite alternate;
+}
+.bokeh-b6 {
+  width: 160px; height: 160px;
+  top: 50%; left: 8%;
+  background: rgba(240, 53, 32, 0.05);
+  filter: blur(45px);
+  animation: b-drift3 20s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes b-drift1 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(45px, -35px) scale(1.12); }
+}
+@keyframes b-drift2 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-55px, 45px) scale(0.88); }
+}
+@keyframes b-drift3 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(35px, 55px) scale(1.08); }
+}
+
+/* ─── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #2d2d3a; }
+
+/* ─── Selection ─────────────────────────────────────── */
+::selection { background: var(--blue-dim); color: var(--text); }

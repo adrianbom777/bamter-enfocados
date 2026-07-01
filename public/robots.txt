@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://enfocados.bamter.com/sitemap.xml
